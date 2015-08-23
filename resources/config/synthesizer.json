@@ -1,0 +1,16 @@
+{
+    "app": {
+        "name": "Synthesizer.net",
+        "version": "1.0",
+        "web": "https://github.com/sdkcarlos/Synthesizer.net"
+    },
+    "description": "A free .NET Written web based Text to speech application !",
+    "author": {
+        "name": "SDkCarlos",
+        "web": "https://github.com/sdkcarlos"
+    },
+    "settings":{
+        "voice" : "Microsoft Hedda Desktop",
+        "culture" : "de-DE"
+    }
+}
