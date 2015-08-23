@@ -13,3 +13,5 @@ C:\Git Repos\Synthesizer.net\Synthesizer.net\obj\x64\Debug\Synthesizer.net.Prope
 C:\Git Repos\Synthesizer.net\Synthesizer.net\obj\x64\Debug\Synthesizer.net.csproj.GenerateResource.Cache
 C:\Git Repos\Synthesizer.net\Synthesizer.net\obj\x64\Debug\Synthesizer.net.exe
 C:\Git Repos\Synthesizer.net\Synthesizer.net\obj\x64\Debug\Synthesizer.net.pdb
+C:\Git Repos\Synthesizer.net\Synthesizer.net\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Git Repos\Synthesizer.net\Synthesizer.net\bin\x64\Debug\Newtonsoft.Json.xml

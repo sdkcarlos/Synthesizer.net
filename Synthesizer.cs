@@ -26,6 +26,11 @@ namespace Synthesizer.net
 
         private void InitializeChrome()
         {
+            if (Properties.Settings.Default.firstUse == true)
+            {
+                Chrome.Load(@"C:\Git Repos\Synthesizer.net\Synthesizer.net\resources\configurator.html");
+            }
+
             this.Controls.Add(Chrome);
             this.WindowState = FormWindowState.Maximized;
             BrowserSettings browserSettings = new BrowserSettings();

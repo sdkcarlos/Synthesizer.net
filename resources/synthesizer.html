@@ -20,12 +20,7 @@
 <header class="header fixed-top clearfix">
 <!--logo start-->
 <div class="brand">
-    <a href="javascript:void(0);" class="logo">
-        <img src="js/logo.png" alt="">
-    </a>
-    <div class="sidebar-toggle-box">
-        <div class="fa fa-bars"></div>
-    </div>
+    <img src="img/synthesizerlogo.png" alt="log" class="img img-responsive center-block" style="height:75px;">
 </div>
 <!--logo end-->
 
@@ -50,6 +45,11 @@
         <li class="tooltips" data-toggle="tooltip" data-placement="bottom" data-original-title="Stop" data-synthesizer-trans-id="7">
             <a class="dropdown-toggle" href="javascript:void(0);" id="action-buttons-stop">
                 <i class="fa fa-stop fa-2x"></i>
+            </a>
+        </li>
+        <li class="tooltips" data-toggle="tooltip" data-placement="bottom" data-original-title="Export to audio file" data-synthesizer-trans-id="8">
+            <a class="dropdown-toggle" href="javascript:void(0);" id="action-buttons-export">
+                <i class="fa fa-file-audio-o fa-2x"></i>
             </a>
         </li>
         <li class="tooltips" data-toggle="tooltip" data-placement="bottom" data-original-title="Speak text" data-synthesizer-trans-id="4">
@@ -94,7 +94,17 @@
                 <div class="col-lg-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        <span data-synthesizer-trans-id="5">Text to speech</span>
+                        <div class="row">
+                            <div class="col-md-6">
+                            <span data-synthesizer-trans-id="5">Text to speech</span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button data-toggle="button" class="btn btn-white" aria-pressed="false">
+                                <i class="fa fa-volume-up"></i>
+                                <span id="action-buttons-progress"></span>
+                            </button>
+                        </div>
+                        </div>
                     </header>
                     <div class="panel-body">
                         <div class="text-center">
@@ -169,9 +179,9 @@
             play: $('#action-buttons-speak'),
             pause: $('#action-buttons-pause'),
             stop: $("#action-buttons-stop"),
-            resume: $("#action-buttons-resume")
+            resume: $("#action-buttons-resume"),
+            export: $("#action-buttons-export")
         };
-        
         
         actionButtons.play.click(function(){
             var text = synthesizerUI.textarea.val();
@@ -192,6 +202,11 @@
         
         actionButtons.resume.click(function(){
             synthesizerNET.resume();
+        });
+        
+        actionButtons.export.click(function(){
+            var text = synthesizerUI.textarea.val();
+            synthesizerNET.toWAVFile(text);
         });
         
         $("#action-buttons-volume-slider").ionRangeSlider({

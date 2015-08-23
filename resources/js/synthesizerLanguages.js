@@ -43,6 +43,12 @@
                     spanish:"Detener",
                     english:"Stop"
                 },
+                {
+                    id:8,
+                    deutsch:"Export in Audio-Datei",
+                    spanish:"Exportar a un archivo de audio",
+                    english:"Export to audio file"
+                }
             ];
         
         
@@ -79,8 +85,6 @@
                            $(this).text(lang.english);
                     }
                 });
-                //var langPack = synthesizerLangManager.getLanguageItemById(langKey);
-                
             };
             
             synthesizerLangManager.getLanguageItemById = function(id){
