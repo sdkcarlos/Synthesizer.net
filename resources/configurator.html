@@ -68,7 +68,7 @@
 <!--script for this page-->
 <script>
     function AddVoiceToLayout(Contenido){
-        synthesizerNET.showDevTools();
+        //synthesizerNET.showDevTools();
         var Voces = JSON.parse(decodeURIComponent(Contenido));
         var totalVoces = Voces.length;
         
@@ -122,7 +122,10 @@
         
         $(document).on("click",".choose-voice", function(){
             var Boton = $(this);
-            alert(Boton.data("voiceculture"));
+            var culture = Boton.data("voiceculture");
+            var name = Boton.data("voicename");
+            
+            synthesizerNET.saveConfiguration(name,culture);
         });
     });
 </script>

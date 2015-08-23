@@ -42,17 +42,18 @@ namespace Synthesizer.net
                 throw new Exception("The second parameter of the class must be a (Your formular) object. " + formulario.GetType() + " given.");
             }
         }
-
+ 
         public void speak(string content = "")
         {
             try
             {
+                sintetizador.SelectVoice(Properties.Settings.Default.voicename);
                 sintetizador.SpeakProgress += new EventHandler<SpeakProgressEventArgs>(synthesizer_SpeakProgress);
                 sintetizador.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>(synthesizer_SpeakCompleted);
                 sintetizador.SetOutputToDefaultAudioDevice();
                 sintetizador.SpeakAsync(content);
             }
-            catch (InvalidOperationException){}
+            catch (InvalidOperationException e) { Console.WriteLine(e.Message); }
         }
 
         private void synthesizer_SpeakCompleted(object sender, SpeakCompletedEventArgs e)
@@ -75,7 +76,11 @@ namespace Synthesizer.net
 
         public void stop()
         {
-            sintetizador.SpeakAsyncCancelAll();
+            try
+            {
+                sintetizador.SpeakAsyncCancelAll();
+            }
+            catch (ObjectDisposedException) { }
         }
 
         /// <summary>
@@ -113,6 +118,7 @@ namespace Synthesizer.net
         /// <param name="content"></param>
         public void toWAVFile(string content = "")
         {
+            sintetizador.SelectVoice(Properties.Settings.Default.voicename);
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             sintetizador.SetOutputToWaveFile(path + "/test.wav");
             sintetizador.Speak(content);
@@ -140,6 +146,26 @@ namespace Synthesizer.net
 
             string JSON = JsonConvert.SerializeObject(list);
             this.InjectScript("AddVoiceToLayout('" +System.Net.WebUtility.UrlEncode(JSON) + "');");
+        }
+
+        public void saveConfiguration(string name, string culture)
+        {
+            Properties.Settings.Default.voicename = name;
+            Properties.Settings.Default.culture = culture;
+            Properties.Settings.Default.firstUse = false;
+            Properties.Settings.Default.Save();
+
+            Application.Restart();
+        }
+
+        public void resetConfiguration()
+        {
+            Properties.Settings.Default.voicename = "";
+            Properties.Settings.Default.culture = "";
+            Properties.Settings.Default.firstUse = true;
+            Properties.Settings.Default.Save();
+
+            Application.Restart();
         }
 
         public void showDevTools()

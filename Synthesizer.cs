@@ -26,7 +26,7 @@ namespace Synthesizer.net
 
         private void InitializeChrome()
         {
-            if (Properties.Settings.Default.firstUse == true)
+            if ((Properties.Settings.Default.firstUse == true) || (Properties.Settings.Default.culture == "") || (Properties.Settings.Default.voicename == ""))
             {
                 Chrome.Load(@"C:\Git Repos\Synthesizer.net\Synthesizer.net\resources\configurator.html");
             }

@@ -34,5 +34,29 @@ namespace Synthesizer.net.Properties {
                 this["firstUse"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string culture {
+            get {
+                return ((string)(this["culture"]));
+            }
+            set {
+                this["culture"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string voicename {
+            get {
+                return ((string)(this["voicename"]));
+            }
+            set {
+                this["voicename"] = value;
+            }
+        }
     }
 }
