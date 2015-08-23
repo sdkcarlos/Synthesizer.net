@@ -1,1 +1,2 @@
 c:\users\carlos\documents\visual studio 2013\Projects\Synthesizer.net\Synthesizer.net\bin\Debug\Synthesizer.net.exe.config
+C:\Git Repos\Synthesizer.net\Synthesizer.net\bin\Debug\Synthesizer.net.exe.config

@@ -7,14 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CefSharp.WinForms;
+using CefSharp;
 
 namespace Synthesizer.net
 {
     public partial class Synthesizer : Form
     {
+        private const string startUpPath = @"C:\Git Repos\Synthesizer.net\Synthesizer.net\resources\synthesizer.html";
+        public ChromiumWebBrowser Chrome = new ChromiumWebBrowser(startUpPath){Dock = DockStyle.Fill};
+
         public Synthesizer()
         {
             InitializeComponent();
+            InitializeChrome();
+            Chrome.RegisterJsObject("synthesizerNET", new SynthesizerUIHelper(Chrome, this)); 
+        }
+
+        private void InitializeChrome()
+        {
+            this.Controls.Add(Chrome);
+            this.WindowState = FormWindowState.Maximized;
+            BrowserSettings browserSettings = new BrowserSettings();
+            browserSettings.FileAccessFromFileUrlsAllowed = true;
+            browserSettings.UniversalAccessFromFileUrlsAllowed = true;
+            Chrome.BrowserSettings = browserSettings;
+        }
+
+        private void Synthesizer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

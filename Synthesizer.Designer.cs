@@ -34,9 +34,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 405);
+            this.ClientSize = new System.Drawing.Size(1152, 593);
             this.Name = "Synthesizer";
             this.Text = "Synthesizer.net";
+            this.Load += new System.EventHandler(this.Synthesizer_Load);
             this.ResumeLayout(false);
 
         }
