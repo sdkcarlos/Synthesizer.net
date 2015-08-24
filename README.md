@@ -1,5 +1,7 @@
 # Synthesizer.net
 
+![Synthesizer.net](https://raw.githubusercontent.com/sdkcarlos/Synthesizer.net/master/resources/img/synthesizerlogo-fullresolution.png)
+
 A text to speech freeware for windows.
 
 ## Use the native voices of your operative system
